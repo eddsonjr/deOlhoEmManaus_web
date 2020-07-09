@@ -14,7 +14,7 @@ pathListShowHouseNode = '/showHouse'
 
 
 #path para lista de shows
-pathListShows = '/show'
+pathListShows = '/show/-MBl90nVBxYz4UWS9Hoz'
 
 
 #path db base

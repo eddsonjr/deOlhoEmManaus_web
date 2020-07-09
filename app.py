@@ -11,10 +11,14 @@ print(str(data))
 
 
 data = {
-    'testing' : 'show'
+    'child' : 'show CHield'
 }
 
 
 #tentando criar uma nova categoria
-commit = firebaseDAO.saveData(pathListShows,data)
-print(str(commit))
+#commit = firebaseDAO.saveData(pathListShows,data)
+#print(str(commit))
+
+
+firebaseDAO.saveChild(data,'/show/-MBl90nVBxYz4UWS9Hoz')
+

@@ -15,6 +15,9 @@ class FirebaseService:
 
     __TAG = '[FirebaseService]: '
     firebase = firebase.FirebaseApplication(pathBase,None)
+    deb = firebase.database()
+
+
 
 
     def getData(self,urlNode):
@@ -37,12 +40,23 @@ class FirebaseService:
         commit = None
 
         try:
-            commit = firebase.post(urlNode,data)
+            commit = self.firebase.post(urlNode,data)
         except:
             print(self.__TAG + 'Error: Cannot save data into firebase')
         finally:
             return commit
         
+
+
+    def saveChild(self,data,urlNode,child):
+
+        try:
+            self.db.child(urlNode).push(data)
+        except:
+            print(self.__TAG + 'Error: Cannot save data into firebase')
+            
+        
+
 
 
 
