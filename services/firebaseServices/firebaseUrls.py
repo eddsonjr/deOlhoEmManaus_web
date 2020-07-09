@@ -6,7 +6,7 @@
 '''
 
 #path para a lista de categorias
-pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory'
+pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory/'
 
 
 #path para a lista de casas de show

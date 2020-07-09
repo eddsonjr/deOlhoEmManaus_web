@@ -11,9 +11,10 @@ print(str(data))
 
 
 data = {
-    '27' : 'pablo_viadao'
+    'testing' : 'show'
 }
 
+
 #tentando criar uma nova categoria
-commit = firebaseDAO.saveData(pathListCategoryNode,data)
-print(str(data))
+commit = firebaseDAO.saveData(pathListShows,data)
+print(str(commit))

@@ -33,11 +33,11 @@ class FirebaseService:
 
 
     def saveData(self,urlNode,data):
-        print(self.__TAG + "Saving data " + data + " to " + urlNode)
+        print(self.__TAG + "Saving data " + str(data) + " to " + urlNode)
         commit = None
 
         try:
-            commit = self.firebase.post(urlNode,data)
+            commit = firebase.post(urlNode,data)
         except:
             print(self.__TAG + 'Error: Cannot save data into firebase')
         finally:
