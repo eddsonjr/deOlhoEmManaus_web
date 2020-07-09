@@ -9,13 +9,13 @@
 '''
 import pyrebase
 from firebase import firebase
-from firebaseUrls import pathBase,pathListCategoryNode,pathListShowHouseNode,pathListShows
-
+from  .firebaseUrls import pathBase,pathListCategoryNode,pathListShowHouseNode,pathListShows
 
 class FirebaseService:
 
     __TAG = '[FirebaseService]: '
     firebase = firebase.FirebaseApplication(pathBase,None)
+
 
     def getData(self,urlNode):
         data = None
@@ -23,8 +23,8 @@ class FirebaseService:
         print(self.__TAG + 'Getting data from ' + urlNode + '\n\n')
         
         try:
-            data = firebase.get(urlNode,'')
-        except Exception:
+            data = self.firebase.get(urlNode,'')
+        except:
             print(self.__TAG + 'Error: cannot get data')
         finally:
             return data
@@ -32,12 +32,17 @@ class FirebaseService:
         
 
 
+    def saveData(self,urlNode,data):
+        print(self.__TAG + "Saving data " + data + " to " + urlNode)
+        commit = None
 
-
-
-
-    def saveData(self):
-        pass
+        try:
+            commit = self.firebase.post(urlNode,data)
+        except:
+            print(self.__TAG + 'Error: Cannot save data into firebase')
+        finally:
+            return commit
+        
 
 
 
