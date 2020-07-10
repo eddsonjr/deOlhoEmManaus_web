@@ -6,11 +6,13 @@ from services.firebaseServices.firebaseUrls import pathListCategoryNode,pathList
 
 #pegando os dados do firebase
 firebaseDAO = FirebaseService()
-data = firebaseDAO.getData(pathListShows)
-print(str(data))
+#data = firebaseDAO.getData(pathListShows)
+#print(str(data))
 
 
 data = {
-    'child' : 'show CHield'
+    'child' : 'show CHield with key'
 }
 
+
+firebaseDAO.saveData(pathListShows,data,'testChildKey')

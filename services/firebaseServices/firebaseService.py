@@ -6,6 +6,10 @@
     Edson Jr
     Jul 2020
 
+
+    Documentacao:
+        https://pypi.org/project/firebase/
+
 '''
 import pyrebase
 from firebase import Firebase
@@ -17,6 +21,7 @@ class FirebaseService:
     __TAG = '[FirebaseService]: '
     firebaseObj = Firebase(firebaseConf)
     db = firebaseObj.database()
+
 
 
     def getData(self,urlNode):
@@ -39,8 +44,23 @@ class FirebaseService:
         
                 
         
-    def saveData(self,urlNode,data):
-       pass
+    def saveData(self,urlNode,data,childKey = None):
+        print(self.__TAG + 'Saving data into ' + urlNode)
+
+        try:
+            if childKey:
+                self.db.child(urlNode).child(childKey).set(data)
+            else:
+                self.db.child(urlNode).push(data)
+        except:
+            print(self.__TAG + 'Error when saving data into firebase')
+        
+
+
+        
+
+
+       
 
 
 
