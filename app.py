@@ -18,6 +18,6 @@ data = {
 
 #firebaseDAO.saveData(pathListShows,data,'testChildKey2')
 
-path = pathListShows + '/-MBl90nVBxYz4UWS9Hoz'
-result = firebaseDAO.updateData(path,data)
+path = pathListShows + '/-MBl90nVBxYz4UWS9Hoz11111'
+result = firebaseDAO.deleteData(path)
 print(result)

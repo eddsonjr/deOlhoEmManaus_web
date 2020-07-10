@@ -93,6 +93,13 @@ class FirebaseService:
         try:
             self.db.child(urlNode).update(data)
             success = True
+            '''
+                Atencao: se o usuario informar um caminho que nao
+                existe no banco de dados, a lib cria um contendo
+                esse caminho nao existente e salva os dados ao inves
+                de atualizar
+ 
+            '''
         except Exception as e:
             print(self.__TAG + "Error when update data")
             print(self.__TAG + str(e))
