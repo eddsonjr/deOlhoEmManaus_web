@@ -1,13 +1,13 @@
 from services.firebaseServices.firebaseService import FirebaseService
-from services.firebaseServices.firebaseUrls import pathListCategoryNode,pathListCategoryNode,pathListShowHouseNode,pathListShows
+from services.firebaseServices.firebaseUrls import FirebaseUrls
 
 
 
 
 #pegando os dados do firebase
 firebaseDAO = FirebaseService()
-#data = firebaseDAO.getData(pathListShows)
-#print(str(data))
+data = firebaseDAO.getData(FirebaseUrls.pathListShows.value)
+print(str(data))
 
 
 data = {
@@ -18,6 +18,6 @@ data = {
 
 #firebaseDAO.saveData(pathListShows,data,'testChildKey2')
 
-path = pathListShows + '/-MBl90nVBxYz4UWS9Hoz11111'
-result = firebaseDAO.deleteData(path)
-print(result)
+#path = pathListShows + '/-MBl90nVBxYz4UWS9Hoz11111'
+#result = firebaseDAO.getData()
+#print(result)

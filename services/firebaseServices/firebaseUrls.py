@@ -4,6 +4,7 @@
     Edson Jr
     Jul 2020
 '''
+from enum import Enum
 class FirebaseUrls(Enum):
 
     #path db base
