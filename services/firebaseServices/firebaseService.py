@@ -24,6 +24,7 @@ class FirebaseService:
 
 
 
+
     def getData(self,urlNode):
         print(self.__TAG + "Getting data from node: " + urlNode)
        
@@ -41,7 +42,7 @@ class FirebaseService:
 
 
         
-        
+
     def saveData(self,urlNode,data,childKey = None):
         print(self.__TAG + 'Saving data into ' + urlNode)
 
@@ -81,6 +82,16 @@ class FirebaseService:
 
 
 
-    def updateData(self):
-        pass 
+    def updateData(self,urlNode,data):
+        print(self.__TAG + "Updating data into " + urlNode) 
+
+        success = False
+
+        try:
+            self.db.child.update(data)
+            success = True
+        except:
+            print(self.__TAG + "Error when update data")
+        finally:
+            return success
 

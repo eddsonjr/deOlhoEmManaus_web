@@ -11,12 +11,12 @@ firebaseDAO = FirebaseService()
 
 
 data = {
-    'child' : 'show CHield with key'
+    'testing' : 'testing the update function'
 }
 
 
 #firebaseDAO.saveData(pathListShows,data,'testChildKey2')
 
-path = pathListShows + '/testChildKey'
-result = firebaseDAO.deleteData(path)
+path = pathListShows + '/-MBl90nVBxYz4UWS9Hoz'
+result = firebaseDAO.updateData(path)
 print(result)
