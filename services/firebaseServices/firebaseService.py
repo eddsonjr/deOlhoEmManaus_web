@@ -39,15 +39,13 @@ class FirebaseService:
         finally:
             return valueArray
 
-        
 
         
-                
         
     def saveData(self,urlNode,data,childKey = None):
         print(self.__TAG + 'Saving data into ' + urlNode)
 
-        success = None
+        success = False
 
         try:
             if childKey:
@@ -58,26 +56,33 @@ class FirebaseService:
                 success = True
         except:
             print(self.__TAG + 'Error when saving data into firebase')
-            success = False
         finally:
             return success
 
 
+    
+
+
+
+    def deleteData(self,urlNode):
+        print(self.__TAG + "Removing data from " + urlNode)
+
+        success = False
+
+        try:
+            self.db.child(urlNode).remove()
+            success = True
+        except:
+            print(self.__TAG + "Error when deleting data from firebase")
+        finally:
+            return success
+
         
-
-
-       
-
-
-
-
-    def deleteData(self):
-        pass
 
 
 
     def updateData(self):
-        pass
+        
 
 
 
