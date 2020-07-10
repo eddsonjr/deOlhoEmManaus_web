@@ -4,18 +4,19 @@
     Edson Jr
     Jul 2020
 '''
+class FirebaseUrls(Enum):
 
-#path para a lista de categorias
-pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory/0'
+    #path db base
+    pathBase = 'https://deolhoemmanaustests.firebaseio.com/'
+    
+    #path para lista de shows
+    pathListShows = '/show/'
+
+    #path para a lista de casas de show
+    pathListShowHouseNode = '/showHouse'
+
+    #path para a lista de categorias
+    pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory/0'
 
 
-#path para a lista de casas de show
-pathListShowHouseNode = '/showHouse'
-
-
-#path para lista de shows
-pathListShows = '/show/'
-
-
-#path db base
-pathBase = 'https://deolhoemmanaustests.firebaseio.com/'
+    

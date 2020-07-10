@@ -13,7 +13,6 @@
 '''
 import pyrebase
 from firebase import Firebase
-from  .firebaseUrls import pathBase,pathListCategoryNode,pathListShowHouseNode,pathListShows
 from  .firebaseConf import firebaseConf
 
 class FirebaseService:
@@ -106,3 +105,11 @@ class FirebaseService:
         finally:
             return success
 
+
+
+
+
+    #Mark: metodos para enviar dados para o storage
+
+    def sendPictureToFirebase(self):
+        pass
