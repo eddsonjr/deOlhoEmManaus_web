@@ -15,4 +15,8 @@ data = {
 }
 
 
-firebaseDAO.saveData(pathListShows,data,'testChildKey2')
+#firebaseDAO.saveData(pathListShows,data,'testChildKey2')
+
+path = pathListShows + '/testChildKey'
+result = firebaseDAO.deleteData(path)
+print(result)

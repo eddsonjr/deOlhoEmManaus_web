@@ -82,12 +82,5 @@ class FirebaseService:
 
 
     def updateData(self):
-        
-
-
-
-
-
-
-
+        pass 
 
