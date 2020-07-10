@@ -35,8 +35,9 @@ class FirebaseService:
             all_data = self.db.child(urlNode).get()
             for data in all_data.each():
                 valueArray.append({data.key():data.val()})
-        except:
+        except Exception as e:
             print(self.__TAG + 'Error when getting firebase data')
+            print(self.__TAG + str(e))
         finally:
             return valueArray
 
@@ -55,8 +56,9 @@ class FirebaseService:
             else:
                 self.db.child(urlNode).push(data)
                 success = True
-        except:
+        except Exception as e:
             print(self.__TAG + 'Error when saving data into firebase')
+            print(self.__TAG + str(e))
         finally:
             return success
 
@@ -73,8 +75,9 @@ class FirebaseService:
         try:
             self.db.child(urlNode).remove()
             success = True
-        except:
+        except Exception as e:
             print(self.__TAG + "Error when deleting data from firebase")
+            print(self.__TAG + str(e))
         finally:
             return success
 
@@ -88,10 +91,11 @@ class FirebaseService:
         success = False
 
         try:
-            self.db.child.update(data)
+            self.db.child(urlNode).update(data)
             success = True
-        except:
+        except Exception as e:
             print(self.__TAG + "Error when update data")
+            print(self.__TAG + str(e))
         finally:
             return success
 
