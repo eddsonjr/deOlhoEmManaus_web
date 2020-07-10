@@ -39,7 +39,7 @@ class FirebaseService:
         finally:
             return valueArray
 
-
+        
 
         
                 
@@ -47,14 +47,20 @@ class FirebaseService:
     def saveData(self,urlNode,data,childKey = None):
         print(self.__TAG + 'Saving data into ' + urlNode)
 
+        success = None
+
         try:
             if childKey:
                 self.db.child(urlNode).child(childKey).set(data)
+                success = True
             else:
                 self.db.child(urlNode).push(data)
+                success = True
         except:
             print(self.__TAG + 'Error when saving data into firebase')
-        
+            success = False
+        finally:
+            return success
 
 
         
