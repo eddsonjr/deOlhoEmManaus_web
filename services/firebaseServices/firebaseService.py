@@ -8,55 +8,39 @@
 
 '''
 import pyrebase
-from firebase import firebase
+from firebase import Firebase
 from  .firebaseUrls import pathBase,pathListCategoryNode,pathListShowHouseNode,pathListShows
+from  .firebaseConf import firebaseConf
 
 class FirebaseService:
 
     __TAG = '[FirebaseService]: '
-    firebase = firebase.FirebaseApplication(pathBase,None)
-    deb = firebase.database()
-
-
+    firebaseObj = Firebase(firebaseConf)
+    db = firebaseObj.database()
 
 
     def getData(self,urlNode):
-        data = None
+        print(self.__TAG + "Getting data from node: " + urlNode)
+       
+        all_data = None
+        valueArray = []
 
-        print(self.__TAG + 'Getting data from ' + urlNode + '\n\n')
-        
         try:
-            data = self.firebase.get(urlNode,'')
+            all_data = self.db.child(urlNode).get()
+            for data in all_data.each():
+                valueArray.append({data.key():data.val()})
         except:
-            print(self.__TAG + 'Error: cannot get data')
+            print(self.__TAG + 'Error when getting firebase data')
         finally:
-            return data
-        
-        
+            return valueArray
 
 
+
+        
+                
+        
     def saveData(self,urlNode,data):
-        print(self.__TAG + "Saving data " + str(data) + " to " + urlNode)
-        commit = None
-
-        try:
-            commit = self.firebase.post(urlNode,data)
-        except:
-            print(self.__TAG + 'Error: Cannot save data into firebase')
-        finally:
-            return commit
-        
-
-
-    def saveChild(self,data,urlNode,child):
-
-        try:
-            self.db.child(urlNode).push(data)
-        except:
-            print(self.__TAG + 'Error: Cannot save data into firebase')
-            
-        
-
+       pass
 
 
 

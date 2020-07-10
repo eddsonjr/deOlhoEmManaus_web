@@ -6,19 +6,11 @@ from services.firebaseServices.firebaseUrls import pathListCategoryNode,pathList
 
 #pegando os dados do firebase
 firebaseDAO = FirebaseService()
-data = firebaseDAO.getData(pathListCategoryNode)
+data = firebaseDAO.getData(pathListShows)
 print(str(data))
 
 
 data = {
     'child' : 'show CHield'
 }
-
-
-#tentando criar uma nova categoria
-#commit = firebaseDAO.saveData(pathListShows,data)
-#print(str(commit))
-
-
-firebaseDAO.saveChild(data,'/show/-MBl90nVBxYz4UWS9Hoz')
 

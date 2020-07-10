@@ -6,7 +6,7 @@
 '''
 
 #path para a lista de categorias
-pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory/'
+pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory/0'
 
 
 #path para a lista de casas de show
@@ -14,7 +14,7 @@ pathListShowHouseNode = '/showHouse'
 
 
 #path para lista de shows
-pathListShows = '/show/-MBl90nVBxYz4UWS9Hoz'
+pathListShows = '/show/'
 
 
 #path db base
