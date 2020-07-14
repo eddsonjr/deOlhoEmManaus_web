@@ -1,23 +1,33 @@
-from services.firebaseServices.firebaseService import FirebaseService
-from services.firebaseServices.firebaseUrls import FirebaseUrls
+'''
+    Arquivo de inicio da API para o aplicativo 'DeOlhoEmManaus'
+
+    Edson Jr
+    Jul 2020
+
+'''
+from flask import Flask,jsonify, request
+
+# Mark: Configuracoes do flask
+app = Flask(__name__)
+
+
+#Mark: Rotas
+
+@app.route('/categories/getAll',methods=['GET'])
+def getAllCategories():
+    print('Gettin all categories')
 
 
 
 
-#pegando os dados do firebase
-firebaseDAO = FirebaseService()
-data = firebaseDAO.getData(FirebaseUrls.pathListShows.value)
-print(str(data))
 
 
-data = {
-    'testing' : 'testing the update function',
-    'watch' : 'firebase rulez'
-}
 
 
-#firebaseDAO.saveData(pathListShows,data,'testChildKey2')
 
-#path = pathListShows + '/-MBl90nVBxYz4UWS9Hoz11111'
-#result = firebaseDAO.getData()
-#print(result)
+
+
+
+#Mark: main
+if __name__ == '__main__':
+    app.run(debug=True)
