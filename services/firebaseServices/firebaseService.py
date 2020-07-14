@@ -23,7 +23,7 @@ class FirebaseService:
 
 
     def getData(self,urlNode):
-        print(self.__TAG + "Getting data from node: " + urlNode)
+        print(self.__TAG + "Getting data from node: " + str(urlNode))
        
         all_data = None
         valueArray = []

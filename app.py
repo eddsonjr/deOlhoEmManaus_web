@@ -6,6 +6,7 @@
 
 '''
 from flask import Flask,jsonify, request
+from controllers.controller import Controller
 
 # Mark: Configuracoes do flask
 app = Flask(__name__)
@@ -15,7 +16,18 @@ app = Flask(__name__)
 
 @app.route('/categories/getAll',methods=['GET'])
 def getAllCategories():
-    print('Gettin all categories')
+    controller = Controller()
+    result = controller.retrieveAllCategoriesFromDB()
+    return result
+
+
+@app.route('/categories/<nodeUrlID>',methods=['POST','PUT','DELETE'])
+def categories(nodeUrlID):
+    nodeUrlID = nodeUrlID
+    return {'message: ' : str(nodeUrlID)}
+
+
+
 
 
 

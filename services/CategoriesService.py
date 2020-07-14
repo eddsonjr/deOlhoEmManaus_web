@@ -15,7 +15,7 @@ class CategoriesService(Resource):
 
 
     def get(self,nodeUlrID):
-        pass
+        pass 
 
 
     
