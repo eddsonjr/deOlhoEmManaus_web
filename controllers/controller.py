@@ -20,13 +20,12 @@ class Controller:
     __TAG = '[Controller]: '
 
     def retrieveAllCategoriesFromDB(self):
-        result = self.firebaseService.getData(FirebaseUrls.pathListCategoryNode)
+        result = self.firebaseService.getData(FirebaseUrls.pathListCategoryNode.value)
 
         if not result:
             return {'message': 'Error when getting list of categories'},400 #bad request
                  
-        json = self.parseDictToJson(result)
-        return {'message' : json},200
+        return {'message' : result},200
 
 
 
