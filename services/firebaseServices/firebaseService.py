@@ -22,8 +22,6 @@ class FirebaseService:
     db = firebaseObj.database()
 
 
-
-
     def getData(self,urlNode):
         print(self.__TAG + "Getting data from node: " + urlNode)
        
