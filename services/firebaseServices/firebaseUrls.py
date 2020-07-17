@@ -17,7 +17,7 @@ class FirebaseUrls(Enum):
     pathListShowHouseNode = '/showHouse'
 
     #path para a lista de categorias
-    pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory'
+    pathListCategoryNode = '/category/-LrarCqAGUtS3LqUFg1S/listCategory/'
 
 
     

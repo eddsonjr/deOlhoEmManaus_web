@@ -21,7 +21,7 @@ app = Flask(__name__)
 @app.route('/categories/getAll',methods=['GET'])
 def getAllCategories():
     controller = Controller()
-    result = controller.retrieveAllCategories()
+    result = controller.getAllCategories()
     return result
 
 
@@ -36,9 +36,9 @@ def categories(childID):
     result = None
 
     if request.method == 'POST':
-        result = controller.saveCategory(content,childID)
+        result = controller.postCategory(content,childID)
 
-    
+
     elif request.method == 'DELETE':
         result = controller.deleteCategory(childID)
 

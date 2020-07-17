@@ -20,7 +20,7 @@ class Controller:
     __TAG = '[Controller]: '
 
     #Pega todas as categorias do banco de dados 
-    def retrieveAllCategories(self):
+    def getAllCategories(self):
         result = self.firebaseService.getData(FirebaseUrls.pathListCategoryNode.value)
 
         if not result:
@@ -32,7 +32,7 @@ class Controller:
 
 
     #salva uma categoria especifica no banco de dados
-    def saveCategory(self,jsonRequest,child):
+    def postCategory(self,jsonRequest,child):
         categoryName = jsonRequest['categoryName']
         result = self.firebaseService.saveData(FirebaseUrls.pathListCategoryNode.value,categoryName,child)
 
@@ -54,7 +54,7 @@ class Controller:
         
 
         return {'message' : 'Category ' + child + ' deleted'}
-    
+
 
 
         
