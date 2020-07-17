@@ -19,7 +19,8 @@ class Controller:
     firebaseService = FirebaseService()
     __TAG = '[Controller]: '
 
-    def retrieveAllCategoriesFromDB(self):
+    #Pega todas as categorias do banco de dados 
+    def retrieveAllCategories(self):
         result = self.firebaseService.getData(FirebaseUrls.pathListCategoryNode.value)
 
         if not result:
@@ -30,30 +31,36 @@ class Controller:
 
 
 
-    def saveData(self,jsonRequest):
-        dictionary = self.parseDictToJson(jsonRequest)
-        print(dictionary)
+    #salva uma categoria especifica no banco de dados
+    def saveCategory(self,jsonRequest,child):
+        categoryName = jsonRequest['categoryName']
+        result = self.firebaseService.saveData(FirebaseUrls.pathListCategoryNode.value,categoryName,child)
+
+        if not result:
+            return {'message': 'Error when getting list of categories'},400 #bad request
         
-
-
-
-
-
+        return {'message': 'category ' + str(categoryName) + ' added succefully'},200
+        
     
 
-    #Recebe como parametro um json e retorna um dicionario
-    def parserJsonToDict(self,jsonRequest):
-	    json_to_string = json.dumps(jsonRequest)
-	    json_dict = json.loads(json_to_string)
-	    return json_dict
 
 
+    #remove uma categoria do banco de dados
+    def deleteCategory(self,child):
+        result = self.firebaseService.deleteData(FirebaseUrls.pathListCategoryNode.value + str(child))
 
+        if not result:
+            return {'message': 'Error when getting list of categories'},400 #bad request
+        
 
-    #Faz o parser de um dicionario para json
-    def parseDictToJson(self,dictionary):
-        json_obj = json.dumps(dictionary)
-        return json_obj
+        return {'message' : 'Category ' + child + ' deleted'}
+    
+
 
         
+
+
+
+
+
 

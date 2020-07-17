@@ -21,26 +21,32 @@ app = Flask(__name__)
 @app.route('/categories/getAll',methods=['GET'])
 def getAllCategories():
     controller = Controller()
-    result = controller.retrieveAllCategoriesFromDB()
+    result = controller.retrieveAllCategories()
     return result
 
 
 
 
 
-@app.route('/categories/<nodeUrlID>',methods=['POST','PUT','DELETE'])
-def categories(nodeUrlID):
+@app.route('/categories/<childID>',methods=['POST','PUT','DELETE'])
+def categories(childID):
+
     controller = Controller()
-    content = request.json
+    content = request.json #recebe um json do contexto
+    result = None
 
     if request.method == 'POST':
-        print(content)
-        print(nodeUrlID)
+        result = controller.saveCategory(content,childID)
+
+    
+    elif request.method == 'DELETE':
+        result = controller.deleteCategory(childID)
 
 
 
-    nodeUrlID = nodeUrlID
-    return {'message: ' : str(nodeUrlID)}
+
+   
+    return result
 
 
 
