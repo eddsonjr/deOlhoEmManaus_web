@@ -30,6 +30,23 @@ class Controller:
 
 
 
+    def saveData(self,jsonRequest):
+        dictionary = self.parseDictToJson(jsonRequest)
+        print(dictionary)
+        
+
+
+
+
+
+    
+
+    #Recebe como parametro um json e retorna um dicionario
+    def parserJsonToDict(self,jsonRequest):
+	    json_to_string = json.dumps(jsonRequest)
+	    json_dict = json.loads(json_to_string)
+	    return json_dict
+
 
 
 

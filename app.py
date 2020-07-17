@@ -4,6 +4,10 @@
     Edson Jr
     Jul 2020
 
+
+    Pesquisas:
+        https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask
+
 '''
 from flask import Flask,jsonify, request
 from controllers.controller import Controller
@@ -21,8 +25,20 @@ def getAllCategories():
     return result
 
 
+
+
+
 @app.route('/categories/<nodeUrlID>',methods=['POST','PUT','DELETE'])
 def categories(nodeUrlID):
+    controller = Controller()
+    content = request.json
+
+    if request.method == 'POST':
+        print(content)
+        print(nodeUrlID)
+
+
+
     nodeUrlID = nodeUrlID
     return {'message: ' : str(nodeUrlID)}
 
